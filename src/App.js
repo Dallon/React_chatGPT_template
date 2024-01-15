@@ -16,14 +16,20 @@ const App = () => {
       // Fetch data from the server
       const response = await fetch('http://localhost:8000/v1/chat/completions', options);
 
-  
+      //for user experience we immediately clear the input textbox, but if the response is not okay we revert the value.
+      const temp_input =  inputMessage
+      setInputMessage("");
+
       // Ensure the response is OK
       if (!response.ok) {
+        setInputMessage(temp_input);
         throw new Error('Network response was not ok ' + response.statusText);
+        
       }
-  
+    
       // Convert the response to JSON
       const data = await response.json();
+
       console.log(data);
         
     } catch (error) {
