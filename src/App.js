@@ -1,40 +1,15 @@
 import "./index.css";
 import {useState} from "react";
+import Amplify from 'aws-amplify';
+import { getMessage } from './utils.js';
+
+
 const App = () => {
   const [inputMessage, setInputMessage] = useState(" ");
-  const getMessages = async () => {
-    const options = {
-      method: "POST",
-      body: JSON.stringify({
-        message: inputMessage
-      }),
-      headers: {
-        "Content-Type": "application/json"
-      }
-    }
-    try {
-      // Fetch data from the server
-      const response = await fetch('http://localhost:8000/v1/chat/completions', options);
-
-      //for user experience we immediately clear the input textbox, but if the response is not okay we revert the value.
-      const temp_input =  inputMessage
-      setInputMessage("");
-
-      // Ensure the response is OK
-      if (!response.ok) {
-        setInputMessage(temp_input);
-        throw new Error('Network response was not ok ' + response.statusText);
-        
-      }
-    
-      // Convert the response to JSON
-      const data = await response.json();
-
-      console.log(data);
-        
-    } catch (error) {
-      console.error('Fetch error:', error);
-    }
+ 
+  
+  const handleMessage = () => {
+    getMessage(inputMessage, setInputMessage);
   }
   
   return (
@@ -54,10 +29,10 @@ const App = () => {
         <div className="bottom-section">
           <div className="input-container">
             <input value={inputMessage} onChange={(e)=> setInputMessage(e.target.value)} />
-            <div id="submit" onClick={getMessages}>[send]</div>
+            <div id="submit" onClick={handleMessage}>[send]</div>
           </div>
           <p className="info">
-            Chat GPT Mar 14 Version. BLAGHAFDSjga Lorem Ipsum
+
           </p>
         </div>
       </section>
