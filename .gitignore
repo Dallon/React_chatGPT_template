@@ -57,3 +57,7 @@ src/graphql/mutations.js
 src/graphql/queries.js
 src/graphql/schema.json
 src/graphql/subscriptions.js
+amplify/backend/function/chatGPT/src/app.js
+amplify/backend/function/chatGPT/src/event.json
+amplify/backend/function/chatGPT/src/index.js
+amplify/backend/function/chatGPT/src/package.json
