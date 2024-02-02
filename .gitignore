@@ -43,3 +43,17 @@ amplify/backend/function/chatCompletionsAPI/src/index.js
 package-lock.json
 amplify/hooks/README.md
 
+amplify/backend/function/chatGPT/function-parameters.json
+amplify/backend/function/chatGPT/parameters.json
+amplify/backend/function/chatGPT/custom-policies.json
+src/amplifyconfiguration.json
+src/aws-exports.js
+amplify/backend/api/reactchatgpttemplate/transform.conf.json
+amplify/backend/api/APIGatewayAuthStack.json
+amplify/backend/api/reactchatgpttemplate/parameters.json
+amplify/backend/function/chatGPT/amplify.state
+amplify/backend/function/chatGPT/chatGPT-cloudformation-template.json
+src/graphql/mutations.js
+src/graphql/queries.js
+src/graphql/schema.json
+src/graphql/subscriptions.js

@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "paths": {
+    "/chatGPT": {
+      "name": "/chatGPT",
+      "lambdaFunction": "chatGPT",
+      "permissions": {
+        "setting": "private",
+        "auth": [
+          "create"
+        ]
+      }
+    }
+  }
+}
