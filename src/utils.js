@@ -4,7 +4,7 @@ export const getMessage = async (inputMessage, setInputMessage) => {
     const options = {
         method: "POST",
         body: JSON.stringify({
-            message: inputMessage
+            prompt: inputMessage, // Changed to match your Lambda function expectation
         }),
         headers: {
             "Content-Type": "application/json"
@@ -13,17 +13,17 @@ export const getMessage = async (inputMessage, setInputMessage) => {
 
     try {
         const temp_input = inputMessage;
-        setInputMessage("");
+        setInputMessage(""); // Reset input message
 
-        const response = await fetch('http://localhost:4000/v1/chat/completions', options);
+        const response = await fetch('your gateway url', options); //API Gateway endpoint
 
         if (!response.ok) {
-            setInputMessage(temp_input);
-            throw new Error('Network response was not ok ' + response.statusText);
+            setInputMessage(temp_input); // Restore input message if request fails
+            throw new Error('Network response was not ok: ' + response.statusText);
         }
 
         const data = await response.json();
-        console.log(data);
+        console.log(data); // Log the response data
 
     } catch (error) {
         console.error('Fetch error:', error);
